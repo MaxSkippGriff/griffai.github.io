@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" class="transition-colors duration-300 dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>griffAI – AI Solutions by Max Griffiths</title>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      window.tailwind = window.tailwind || {};
+      window.tailwind.config = { darkMode: 'class' };
+    });
+  </script>
+  <script src="https://cdn.tailwindcss.com" defer></script>
+
+  <style>
+    .fade-in {
+      animation: fadeIn 0.5s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans antialiased">
+  <div class="max-w-4xl mx-auto px-6 py-12">
+
+    <!-- Header -->
+    <header class="text-center mb-16">
+      <h1 class="text-5xl font-extrabold tracking-tight mb-4">
+        griff<span class="text-red-600 dark:text-red-400">AI</span>
+      </h1>
+      <p class="text-xl text-gray-600 dark:text-gray-400">
+        Building internal AI tools and automations for small businesses.
+      </p>
+      <button
+        id="toggle-theme"
+        class="absolute top-4 right-4 flex items-center space-x-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full"
+      >
+        <span id="toggle-text" class="text-sm font-medium">Light Mode</span>
+      </button>
+    </header>
+
+    <!-- About -->
+    <section class="mb-24 fade-in">
+      <h2 class="text-3xl font-bold tracking-tight mb-4 text-gray-900 dark:text-gray-100">About Me</h2>
+      <p class="text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+        I’m Max Griffiths — a developer and current PhD student — helping small businesses build powerful internal tools using AI.
+        From smart email agents to behind-the-scenes automations, I design systems that quietly take care of the boring stuff so you can focus on what really matters.
+      </p>
+    </section>
+
+    <!-- Services -->
+    <section class="mb-24 fade-in">
+      <h2 class="text-3xl font-bold tracking-tight mb-4 text-gray-900 dark:text-gray-100">What I Build</h2>
+      <ul class="list-disc list-inside text-lg leading-loose text-gray-600 dark:text-gray-400">
+        <li>Custom internal AI agents (email assistants, triage bots)</li>
+        <li>Workflow and task automation for small teams</li>
+        <li>LLM tools for writing, data extraction, and document handling</li>
+        <li>AI consulting, prompt engineering, and rapid prototyping</li>
+      </ul>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="mb-24 fade-in">
+      <h2 class="text-3xl font-bold tracking-tight mb-6 text-gray-900 dark:text-gray-100">Testimonials</h2>
+
+      <blockquote class="border-l-4 border-red-500 pl-4 italic text-gray-600 dark:text-gray-400 mb-6">
+        “Max built an internal AI assistant that helps our team answer plant care queries efficiently. It's taken a lot of pressure off our support inbox.”
+        <br><span class="not-italic font-medium block mt-2">– Urban Organics</span>
+      </blockquote>
+
+      <blockquote class="border-l-4 border-red-500 pl-4 italic text-gray-600 dark:text-gray-400 mb-6">
+        “The internal email automation Max set up quietly handles appointment reminders and follow-ups in the background. It’s streamlined our admin massively.”
+        <br><span class="not-italic font-medium block mt-2">– Elements Acupuncture</span>
+      </blockquote>
+
+      <blockquote class="border-l-4 border-red-500 pl-4 italic text-gray-600 dark:text-gray-400">
+        “Max built us a private AI tool that drafts responses to incoming emails and helps organize project communications. It's like having an invisible assistant.”
+        <br><span class="not-italic font-medium block mt-2">– Rustic Campers</span>
+      </blockquote>
+    </section>
+
+    <!-- Contact -->
+    <section class="mb-24 fade-in text-center">
+      <h2 class="text-3xl font-bold tracking-tight mb-6 text-gray-900 dark:text-gray-100">Let's Work Together</h2>
+
+      <a href="mailto:mskippergriffiths@gmail.com"
+         class="inline-block bg-red-600 hover:bg-red-500 text-white px-6 py-2 rounded-full text-lg transition shadow mb-4">
+        Email me here →
+      </a>
+
+      <div class="flex justify-center gap-6 text-sm mt-6">
+        <a href="https://www.linkedin.com/in/max-griffiths-3681631b4/" target="_blank"
+           class="hover:underline text-gray-500 dark:text-gray-400">LinkedIn</a>
+        <a href="https://github.com/MaxSkippGriff" target="_blank"
+           class="hover:underline text-gray-500 dark:text-gray-400">GitHub</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center text-sm text-gray-500 dark:text-gray-400 border-t pt-6">
+      &copy; 2025 griffAI. All rights reserved.
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleButton = document.getElementById("toggle-theme");
+      const toggleText = document.getElementById("toggle-text");
+
+      const applyTheme = () => {
+        const savedTheme = localStorage.getItem("theme");
+        const useDark = savedTheme === "dark" || !savedTheme;
+        document.documentElement.classList.toggle("dark", useDark);
+        toggleText.textContent = useDark ? "Light Mode" : "Dark Mode";
+      };
+
+      toggleButton.addEventListener("click", () => {
+        const isDark = document.documentElement.classList.toggle("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        toggleText.textContent = isDark ? "Light Mode" : "Dark Mode";
+      });
+
+      applyTheme();
+    });
+  </script>
+</body>
+</html>
