@@ -120,7 +120,7 @@
 
       const applyTheme = () => {
         const savedTheme = localStorage.getItem("theme");
-        const useDark = savedTheme === "dark" || !savedTheme;
+        const useDark = savedTheme !== "light";
         document.documentElement.classList.toggle("dark", useDark);
         toggleText.textContent = useDark ? "Light Mode" : "Dark Mode";
       };
