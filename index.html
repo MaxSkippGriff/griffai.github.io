@@ -112,7 +112,6 @@
     </footer>
   </div>
 
-  <!-- Scripts -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const toggleButton = document.getElementById("toggle-theme");
@@ -120,9 +119,15 @@
 
       const applyTheme = () => {
         const savedTheme = localStorage.getItem("theme");
-        const useDark = savedTheme !== "light";
-        document.documentElement.classList.toggle("dark", useDark);
-        toggleText.textContent = useDark ? "Light Mode" : "Dark Mode";
+        const useDark = savedTheme !== "light"; // Dark mode by default
+
+        if (useDark) {
+          document.documentElement.classList.add("dark");
+          toggleText.textContent = "Light Mode";
+        } else {
+          document.documentElement.classList.remove("dark");
+          toggleText.textContent = "Dark Mode";
+        }
       };
 
       toggleButton.addEventListener("click", () => {
@@ -134,5 +139,6 @@
       applyTheme();
     });
   </script>
+
 </body>
 </html>
